@@ -10,10 +10,8 @@ class DBRepository(
 ) {
     suspend fun getCharacters():Flow<List<CharacterEntity>> = db.dao().getCharacters()
     suspend fun insertCharacters(character:CharacterEntity) = db.dao().insertCharacter(character)
-
     suspend fun getEpisodes():Flow<List<EpisodeEntity>> = db.dao().getEpisodes()
     suspend fun insertEpisodes(episode:EpisodeEntity) = db.dao().insertEpisode(episode)
-
-    //suspend fun deleteCharacters(character: CharacterEntity) = db.dao().deleteCharacters(character)
-    //suspend fun deleteEpisodes(episode: EpisodeEntity) = db.dao().deleteEpisodes(episode)
+    suspend fun deleteCharacters(character: CharacterEntity) = db.dao().deleteCharacters(character)
+    suspend fun deleteEpisodes(episode: EpisodeEntity) = db.dao().deleteEpisodes(episode)
 }

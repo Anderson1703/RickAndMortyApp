@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "episode_table")
 data class EpisodeEntity(
     @PrimaryKey(autoGenerate = true)
-    val id: String?,
+    val id: Int?=0,
     val air_date: String,
     val characters: List<String>,
     val created: String,

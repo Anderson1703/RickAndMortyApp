@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "character_table")
 data class CharacterEntity(
     @PrimaryKey(autoGenerate = true)
-    val id: String?,
+    val id: Int?=0,
     val name: String,
     val created: String,
     val episode: List<String>,

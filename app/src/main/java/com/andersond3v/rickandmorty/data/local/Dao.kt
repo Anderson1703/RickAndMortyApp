@@ -1,6 +1,6 @@
 package com.andersond3v.rickandmorty.data.local
 import androidx.room.Dao
-//import androidx.room.Delete
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -22,11 +22,9 @@ interface Dao {
     @Query("SELECT * FROM episode_table")
     suspend fun getEpisodes(): Flow<List<EpisodeEntity>>
 
-    /**
-     *  @Delete(entity = CharacterEntity::class)
-     *     suspend fun deleteCharacters(character: CharacterEntity)
-     *
-     *     @Delete(entity = EpisodeEntity::class)
-     *     suspend fun deleteEpisodes(episode: EpisodeEntity)
-     */
+    @Delete(entity = CharacterEntity::class)
+    suspend fun deleteCharacters(character: CharacterEntity)
+
+    @Delete(entity = EpisodeEntity::class)
+    suspend fun deleteEpisodes(episode: EpisodeEntity)
 }

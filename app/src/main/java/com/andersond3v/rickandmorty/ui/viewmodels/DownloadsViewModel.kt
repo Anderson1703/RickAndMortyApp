@@ -2,6 +2,7 @@ package com.andersond3v.rickandmorty.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.andersond3v.rickandmorty.RickAndMortyApplication
 import com.andersond3v.rickandmorty.data.local.entities.CharacterEntity
 import com.andersond3v.rickandmorty.data.local.entities.EpisodeEntity
 import com.andersond3v.rickandmorty.data.local.repository.DBRepository
@@ -12,7 +13,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class DownloadsViewModel(
-    private val downloadsRepository: DBRepository
+    private val downloadsRepository: DBRepository = DBRepository(RickAndMortyApplication.RickAndMortyDatabase.dao())
 ): ViewModel() {
 
     private val _characters = MutableStateFlow<List<CharacterEntity>>(emptyList())

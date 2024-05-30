@@ -1,4 +1,4 @@
-package com.andersond3v.rickandmorty
+package com.andersond3v.rickandmorty.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

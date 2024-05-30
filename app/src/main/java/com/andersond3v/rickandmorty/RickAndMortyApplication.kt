@@ -2,20 +2,19 @@ package com.andersond3v.rickandmorty
 
 import android.app.Application
 import androidx.room.Room
-import com.andersond3v.rickandmorty.data.local.DatabaseService
+import com.andersond3v.rickandmorty.data.local.RickAndMortyDatabase
 
 class RickAndMortyApplication: Application() {
     companion object{
-        lateinit var RickAndMortyDatabase: DatabaseService
+        lateinit var RickAndMortyDatabaseInstance: RickAndMortyDatabase
     }
 
     override fun onCreate() {
         super.onCreate()
-        RickAndMortyDatabase = Room
-            .databaseBuilder(
+        RickAndMortyDatabaseInstance = Room.databaseBuilder(
                 applicationContext,
-                DatabaseService::class.java,
-                DatabaseService.DATABASE_NAME
+                RickAndMortyDatabase::class.java,
+                RickAndMortyDatabase.DATABASE_NAME
             ).build()
     }
 

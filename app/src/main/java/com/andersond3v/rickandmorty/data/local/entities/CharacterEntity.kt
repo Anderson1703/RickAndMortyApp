@@ -9,7 +9,6 @@ data class CharacterEntity(
     val id: Int?=0,
     val name: String,
     val created: String,
-    val episode: List<String>,
     val gender: String,
     val image: String,
     val species: String,

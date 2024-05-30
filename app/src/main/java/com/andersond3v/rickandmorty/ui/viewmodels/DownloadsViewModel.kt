@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class DownloadsViewModel(
-    private val downloadsRepository: DBRepository = DBRepository(RickAndMortyApplication.RickAndMortyDatabase.dao())
+    private val downloadsRepository: DBRepository = DBRepository(RickAndMortyApplication.RickAndMortyDatabaseInstance.dao())
 ): ViewModel() {
 
     private val _characters = MutableStateFlow<List<CharacterEntity>>(emptyList())

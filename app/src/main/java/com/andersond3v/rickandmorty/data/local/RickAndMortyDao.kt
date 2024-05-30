@@ -9,7 +9,7 @@ import com.andersond3v.rickandmorty.data.local.entities.EpisodeEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface Dao {
+interface RickAndMortyDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCharacter(character: CharacterEntity)
 
@@ -17,10 +17,10 @@ interface Dao {
     suspend fun insertEpisode(episode: EpisodeEntity)
 
     @Query("SELECT * FROM character_table")
-    suspend fun getCharacters(): Flow<List<CharacterEntity>>
+     fun getCharacters(): Flow<List<CharacterEntity>>
 
     @Query("SELECT * FROM episode_table")
-    suspend fun getEpisodes(): Flow<List<EpisodeEntity>>
+     fun getEpisodes(): Flow<List<EpisodeEntity>>
 
     @Delete(entity = CharacterEntity::class)
     suspend fun deleteCharacters(character: CharacterEntity)

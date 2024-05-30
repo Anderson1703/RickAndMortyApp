@@ -8,7 +8,6 @@ data class EpisodeEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int?=0,
     val air_date: String,
-    val characters: List<String>,
     val created: String,
     val episode: String,
     val name: String,

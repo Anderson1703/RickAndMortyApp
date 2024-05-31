@@ -30,12 +30,6 @@ class DownloadsViewModel(
         }
     }
 
-    fun insertCharacter(character: CharacterEntity){
-        viewModelScope.launch(Dispatchers.IO) {
-            downloadsRepository.insertCharacters(character)
-        }
-    }
-
     fun getEpisodes(){
         viewModelScope.launch(Dispatchers.IO) {
             downloadsRepository.getEpisodes().collect{

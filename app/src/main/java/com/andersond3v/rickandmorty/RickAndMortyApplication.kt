@@ -17,5 +17,4 @@ class RickAndMortyApplication: Application() {
                 RickAndMortyDatabase.DATABASE_NAME
             ).build()
     }
-
 }

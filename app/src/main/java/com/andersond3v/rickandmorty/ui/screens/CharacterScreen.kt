@@ -40,15 +40,14 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.andersond3v.rickandmorty.R
+import com.andersond3v.rickandmorty.data.local.entities.CharacterEntity
 import com.andersond3v.rickandmorty.data.model.Character
 import com.andersond3v.rickandmorty.ui.viewmodels.CharacterViewModel
-//import com.andersond3v.rickandmorty.ui.viewmodels.DownloadsViewModel
 
 @Composable
 fun CharacterScreen(
     modifier: Modifier,
     characterViewModel: CharacterViewModel = viewModel(),
-    //downloadsViewModel: DownloadsViewModel = viewModel(),
     handleNavigate: (id: Int) -> Unit
 ){
     BackHandler {}
@@ -80,7 +79,7 @@ fun CharacterScreen(
                         horizontalArrangement = Arrangement.Center,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        CharacterCard(character = it, handleNavigate)
+                        CharacterCard(character = it, characterViewModel ,handleNavigate)
                     }
                 }
             }
@@ -91,7 +90,7 @@ fun CharacterScreen(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CharacterCard(character: Character, handleNavigate: (id: Int) -> Unit){
+fun CharacterCard(character: Character, characterViewModel: CharacterViewModel, handleNavigate: (id: Int) -> Unit){
     ElevatedCard(
         elevation = CardDefaults.cardElevation(
             defaultElevation = 6.dp
@@ -144,7 +143,9 @@ fun CharacterCard(character: Character, handleNavigate: (id: Int) -> Unit){
                 Spacer(modifier = Modifier.padding(4.dp))
             }
             IconButton(
-                onClick = {},
+                onClick = {
+                    characterViewModel.insertCharacter(character)
+                },
             ){
                 Icon(
                     painter = painterResource(id = R.drawable.download_24dp_fill0_wght400_grad0_opsz24),
